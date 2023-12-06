@@ -45,13 +45,28 @@ spelled_numbers = {"one": 1, "two":2, "three":3, "four":4, "five":5, "six":6, "s
 
 def convert_spelled_nums(line: str):
     new_line = ""
+
+    # get location of spelled numbers
+    numbers_location = {}
     for spelling in spelled_numbers:
-        if spelling == "one":
-            new_line = line.replace(spelling,str(spelled_numbers[spelling]))
-        else:
-            holder = new_line.replace(spelling,str(spelled_numbers[spelling]))
-            new_line = holder
-    return new_line
+        if spelling in line:
+            numbers_location[line.find(spelling)] = spelling
+            print(f"{spelling} is located in {line.find(spelling)}")
+    sorted_locations = dict(sorted(numbers_location.items()))
+    print(sorted_locations)
+    
+    # check whether there's overlap of numbers
+    overlap = False
+    for location in numbers_location:
+        continue
+
+    # for spelling in spelled_numbers:
+    #     if spelling == "one":
+    #         new_line = line.replace(spelling,str(spelled_numbers[spelling]))
+    #     else:
+    #         holder = new_line.replace(spelling,str(spelled_numbers[spelling]))
+    #         new_line = holder
+    # return new_line
 
 
 for line in sample.splitlines():
