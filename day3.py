@@ -20,11 +20,22 @@ with open("sample_day3.txt") as file:
             continue
 
         for num in nums:
+            print(num)
             # first scenario: number has special character next to it in the same line - either before or after num
             for spec_char in string.punctuation:
                 if spec_char in num:
-                    part_numbers.append(int(num.strip(string.punctuation)))
-                    break
+                    try:
+                        holder = [x for x in num.split(spec_char) if x != ""]
+                        print(holder)
+                        part_numbers.append(int(holder[0].strip(string.punctuation)))
+                        part_numbers.append(int(holder[1].strip(string.punctuation)))
+                        print("Try completed")
+                        break
+                    except:
+                        part_numbers.append(int(num.strip(string.punctuation)))
+                        print("except completed")
+                        break
+                    
             
             # second scenario: number has special character adjacent in the previous line or next line
             
