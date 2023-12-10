@@ -63,7 +63,7 @@ def convert_spelled_nums(line: str):
 #     calibration_values.append(number)
 # print(sum(calibration_values))
 
-with open("sample.txt") as file:
+with open("sample_day1.txt") as file:
     calibration_values = []
     data = file.readlines()
     for line in data:
