@@ -19,7 +19,7 @@ def last_digit(line: str):
         except:
             continue
 
-calibration_values = []
+
 
 # with open("sample_day1.txt") as file:
 #     data = file.readlines()
@@ -28,46 +28,46 @@ calibration_values = []
 #         calibration_values.append(number)
 #     print(sum(calibration_values))
 
-sample = """
-two1nine
-eightwothree
-abcone2threexyz
-xtwone3four
-4nineeightseven2
-zoneight234
-7pqrstsixteen
-"""
+# sample = """
+# two1nine
+# eightwothree
+# abcone2threexyz
+# xtwone3four
+# 4nineeightseven2
+# zoneight234
+# 7pqrstsixteen
+# """
 
 
 # Part 2
 
-spelled_numbers = {"one": 1, "two":2, "three":3, "four":4, "five":5, "six":6, "seven":7, "eight":8, "nine":9}
+
 
 def convert_spelled_nums(line: str):
+    spelled_numbers = {"twone":21, "oneight": 18, "eightwo": 82,"eighthree": 83,"threeight": 38,"fiveight": 58, "nineight": 98, "sevenine": 79, "one": 1, "two":2, "three":3, "four":4, "five":5, "six":6, "seven":7, "eight":8, "nine":9}
+
     new_line = ""
-
-    # get location of spelled numbers
-    numbers_location = {}
     for spelling in spelled_numbers:
-        if spelling in line:
-            numbers_location[line.find(spelling)] = spelling
-            print(f"{spelling} is located in {line.find(spelling)}")
-    sorted_locations = dict(sorted(numbers_location.items()))
-    print(sorted_locations)
-    
-    # check whether there's overlap of numbers
-    overlap = False
-    for location in numbers_location:
-        continue
+        if spelling == "twone":
+            new_line = line.replace(spelling,str(spelled_numbers[spelling]))
+        else:
+            new_line = new_line.replace(spelling,str(spelled_numbers[spelling]))
 
-    # for spelling in spelled_numbers:
-    #     if spelling == "one":
-    #         new_line = line.replace(spelling,str(spelled_numbers[spelling]))
-    #     else:
-    #         holder = new_line.replace(spelling,str(spelled_numbers[spelling]))
-    #         new_line = holder
-    # return new_line
+    return new_line
 
 
-for line in sample.splitlines():
-    print(convert_spelled_nums(line)) 
+# for line in sample.splitlines():
+#     spelled_line = convert_spelled_nums(line)
+#     print(spelled_line)
+#     number = int(str(first_digit(spelled_line)) + str(last_digit(spelled_line)))
+#     calibration_values.append(number)
+# print(sum(calibration_values))
+
+with open("sample.txt") as file:
+    calibration_values = []
+    data = file.readlines()
+    for line in data:
+        spelled_line = convert_spelled_nums(line)
+        number = int(str(first_digit(spelled_line)) + str(last_digit(spelled_line)))
+        calibration_values.append(number)
+    print(sum(calibration_values))
