@@ -1,4 +1,4 @@
-with open("sample.txt") as file:
+with open("sample_day4.txt") as file:
     
     data = file.readlines()
     points = 0

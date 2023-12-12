@@ -1,7 +1,7 @@
 import string
 
 
-with open("sample_day3.txt") as file:
+with open("ruben.txt") as file:
     
     data = file.readlines()
     part_numbers = []
